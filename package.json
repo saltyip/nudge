@@ -1,0 +1,13 @@
+{
+  "name": "nudge",
+  "version": "1.0.0",
+  "description": "A CLI tool for creating quick nudges and reminders",
+  "main": "bin/nudge.js",
+  "bin": {
+    "nudge": "bin/nudge.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "chrono-node": "^2.7.5"
+  }
+}

@@ -1,0 +1,12 @@
+[Unit]
+Description=Nudge CLI Daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/nudge daemon
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
