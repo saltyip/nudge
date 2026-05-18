@@ -94,3 +94,19 @@ function nudge_capture_hook --on-event fish_preexec
     end
 end
 ```
+## How it works
+Nudge stores reminders in `~/.local/share/nudge/nudges.json` and runs a 
+systemd user daemon that checks every 5 seconds. Process watching uses 
+`/proc/<pid>` for near-instant exit detection. Shell hooks capture command 
+completion without polling.
+
+## Requirements
+- Linux (Arch / CachyOS recommended)
+- Node.js 18+
+- `notify-send` (dunst or any notification daemon)
+- fish / bash / zsh
+
+## Notes
+Time parsing via `chrono-node` understands explicit expressions ("in 2 hours", 
+"tomorrow 9am") but not fuzzy ones ("after dinner"). Use `--after <process>` 
+for event-based triggers instead.
