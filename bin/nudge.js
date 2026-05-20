@@ -13,8 +13,10 @@ const c = {
   red: '\x1b[31m',
   bold: '\x1b[1m'
 };
-
-const args = process.argv.slice(2);
+//process.argv gives array of the the whole commands
+//  eg => node hello world -3000 "hello world"
+//  that would be [node ,hello, world ,-3000, "hello world"] 
+const args = process.argv.slice(2);  //slice basically removes the 0 and 1 ist index 
 
 function showHelp() {
   console.log(`
@@ -39,14 +41,14 @@ async function main() {
     return;
   }
 
-  const cmd = args[0];
+  const cmd = args[0]; //gives the argument alone 
 
   if (cmd === 'daemon') {
     await startDaemon();
     return;
   }
 
-  if (cmd === '--trigger-cmd') {
+  if (cmd === '--trigger-cmd') { //0 would be trigger-cmd so 1 would be cmd
     const triggerStr = args[1];
     if (triggerStr) {
       await triggerCmd(triggerStr);
